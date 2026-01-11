@@ -60,7 +60,7 @@ const menus = reactive([
             Hello, This is Frank. 这里包含我备考准备的一切，从词汇、语法开始...
           </p>
         </div>
-        <div class="md:grid lg:grid-cols-3 md:grid-cols-2 md:gap-12 space-y-8 md:space-y-0">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           <RouterLink
             v-for="m in menus"
             :key="m.label"
