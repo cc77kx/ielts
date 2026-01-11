@@ -404,7 +404,7 @@ function copyAllError() {
                                                                                                                                                                         />
                                                                                                                                                 <div
                                                                                                                                                                           class="w-10 h-10 flex items-center justify-center bg-blue-500 text-white rounded cursor-pointer"
-                                                                                                                                                                          @click="speek(item.word)"
+                                                                                                                                                                          @click="play(item.word)"
                                                                                                                                                                         >
                                                                                                                                                                           <i class="i-carbon-volume-up" />
                                                                                                                                                                         </div>
