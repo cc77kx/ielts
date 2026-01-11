@@ -196,15 +196,6 @@ function copyAllError() {
 
 <template>
   <div class="px-4 pt-6 2xl:px-0">
-    <div class="border border-gray-200 rounded-lg bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
-      <!-- Card header -->
-      <div class="items-center justify-between lg:flex">
-        <div class="mb-4 lg:mb-0">
-          <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">
-            雅思词汇真经
-          </h3>
-          <span class="text-base font-normal text-gray-500 dark:text-gray-400">涵盖雅思必备核心词，逻辑词群记忆法</span>
-        </div>
         <div class="items-center sm:flex">
           <div class="flex items-center">
             <select
@@ -267,7 +258,7 @@ function copyAllError() {
         <div class="overflow-x-auto rounded-lg">
           <div class="inline-block min-w-full align-middle">
             <div class="overflow-hidden shadow sm:rounded-lg">
-              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+              <table class=hidden md:table "min-w-full divide-y divide-gray-200 dark:divide-gray-600">
                 <thead class="bg-gray-50 dark:bg-gray-700">
                   <tr>
                     <th class="p-4 text-left text-xs font-medium tracking-wider text-gray-500 dark:text-white">
@@ -375,6 +366,55 @@ function copyAllError() {
                   </template>
                 </tbody>
               </table>
+
+                          <!-- Mobile Card Layout -->
+                          <div class="md:hidden space-y-4">
+                                          <template v-for="(cur, k) in wordList" :key="k">
+                                                            <template v-for="(group, groupIndex) of cur.words" :key="`${k}-${groupIndex}`">
+                                                                              <template v-for="item in group" :key="item.word">
+                                                                                                  <div class="bg-white rounded-lg shadow p-4 space-y-3">
+                                                                                                                        <!-- Word and Position -->
+                                                                                                                        <div class="flex items-center justify-between">
+                                                                                                                                                <div class="text-xl font-bold">{{ item.pos }}</div>
+                                                                                                                                                <div
+                                                                                                                                                                          class="absolute right-0 top-0 hidden h-100% items-center group-hover:flex"
+                                                                                                                                                                          @click="copyText(item)"
+                                                                                                                                                                        >
+                                                                                                                                                                          <i class="i-ph-copy block cursor-pointer px-4" />
+                                                                                                                                                                        </div>
+                                                                                                                                              </div>
+                                                                                                                        
+                                                                                                                        <!-- Meaning -->
+                                                                                                                        <div class="text-gray-700">
+                                                                                                                                                {{ isShowMeaning ? item.meaning : '' }}
+                                                                                                                                              </div>
+                                                                                                                        
+                                                                                                                        <!-- Example -->
+                                                                                                                        <div class="text-gray-600 text-sm">
+                                                                                                                                                {{ isTrainingModel ? '' : item.example }}
+                                                                                                                                              </div>
+                                                                                                                        
+                                                                                                                        <!-- Training Input and Audio -->
+                                                                                                                        <div class="flex items-center gap-2" v-if="isTrainingModel">
+                                                                                                                                                <input
+                                                                                                                                                                          v-model="item.spell"
+                                                                                                                                                                          type="text"
+                                                                                                                                                                          class="flex-1 border rounded px-3 py-2"
+                                                                                                                                                                          :class="item.spell == item.word ? 'border-green-500' : 'border-gray-300'"
+                                                                                                                                                                          placeholder="Type the word..."
+                                                                                                                                                                        />
+                                                                                                                                                <div
+                                                                                                                                                                          class="w-10 h-10 flex items-center justify-center bg-blue-500 text-white rounded cursor-pointer"
+                                                                                                                                                                          @click="speek(item.word)"
+                                                                                                                                                                        >
+                                                                                                                                                                          <i class="i-carbon-volume-up" />
+                                                                                                                                                                        </div>
+                                                                                                                                              </div>
+                                                                                                                      </div>
+                                                                                                </template>
+                                                                            </template>
+                                                        </template>
+                                      </div>
             </div>
           </div>
         </div>
