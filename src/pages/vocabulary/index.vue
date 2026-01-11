@@ -262,7 +262,6 @@ function copyAllError() {
                 <thead class="bg-gray-50 dark:bg-gray-700">
                   <tr>
                     <th class="p-4 text-left text-xs font-medium tracking-wider text-gray-500 dark:text-white">
-                      #
                     </th>
                     <th class="p-4 text-xs font-medium tracking-wider text-gray-500 dark:text-white">
                       <br>
