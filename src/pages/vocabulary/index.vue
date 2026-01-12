@@ -370,8 +370,7 @@ function copyAllError() {
                           <div class="md:hidden space-y-4">
                                           <template v-for="(cur, k) in wordList" :key="k">
                                                             <template v-for="(group, groupIndex) of cur.words" :key="`${k}-${groupIndex}`">
-                                                                              <template v-for="item in group" :key="item.word">
-                                                                                                  <div class="bg-white rounded-lg shadow p-4 space-y-3">
+                      <template v-for="item in group" :key="item.id">                                                                                                  <div class="bg-white rounded-lg shadow p-4 space-y-3">
                                                                                                                         <!-- Word and Position -->
                                                                                                                         <div class="flex items-center justify-between">
                                                                                                                                                 <div class="text-xl font-bold">{{ item.pos }}</div>
